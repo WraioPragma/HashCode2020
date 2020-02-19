@@ -1,0 +1,10 @@
+# choice = "first"
+
+[general]
+x = 100
+y = 200
+
+[first]
+x = 200
+y = 100
+
