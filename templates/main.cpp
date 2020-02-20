@@ -1,40 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string processing_file;
 
-
-void init(ifstream*);
+void init();
 void readFiles(void);
 void dumpResults(void);
 
-void init(ifstream &in) {
+void init() {
     
 }
 
 void readFiles() {
-    vector<string> files = {"first", "second"};
-    for (string &file: files) {
-        cout << "Processing file: " << file << endl;
-        processing_file = file;
-        ifstream in(file + ".txt");
-        init(in);
-
-
-        in.close();
-        cout << "Done processing file: " << file << endl;
-    }
+    
 }
 
 void dumpResults() {
-    ofstream out(processing_file + ".out");
 
-
-    out.close();
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cerr << "Starting" << endl;
+ 
+
     readFiles();
+    cerr << "Done reading file" << endl;
+    cerr << "Running algorithm" << endl;
     dumpResults();
+    cerr << "Completed" << endl;
 }
