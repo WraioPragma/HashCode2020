@@ -6,11 +6,15 @@ using namespace std;
 Input read;
 Output out;
 vector<pair<int, vector<int>>> signedUp;
+int step = 30;
 
 void greedy() {
     int sumDays = 0;
     while (sumDays <= read.days) {
-        sort(read.libraries.begin(), read.libraries.end(), LibraryComparator());
+        if (step == 0) {
+            sort(read.libraries.begin(), read.libraries.end(), LibraryComparator());
+            step = 30;
+        }
         Library* lib = read.libraries[read.libraries.size() - 1];
         sumDays += lib->signUp - 1;
         if (sumDays > read.days) {
@@ -30,15 +34,25 @@ void greedy() {
             lib->books[i]->score = 0;
             new_books.push_back(lib->books[i]->id);
         }
-
+        if (new_books.size() == 0) {
+            read.libraries.pop_back();
+            step--;
+            if (read.libraries.size() == 0) {
+                break;
+            }
+            continue;
+        }
         signedUp.push_back({lib->id, new_books});
         read.libraries.pop_back();
 
         if (read.libraries.size() == 0) {
             break;
         }
-        for (int i = 0; i < read.libraries.size() - 1; i++) {
-            read.libraries[i]->calculateValue();
+        step--;
+        if (step == 0) {
+            for (int i = 0; i < read.libraries.size() - 1; i++) {
+                read.libraries[i]->calculateValue();
+            }
         }
     }
 }
