@@ -23,6 +23,7 @@ public:
 			for (int i = 0; i < num_lib_books; i++) {
 				int bookId;
 				cin >> bookId;
+				books[bookId]->findIt();
 				lib_books.push_back(books[bookId]);
 			}
 			libraries.push_back(new Library(lib_books, signUp, ship, i));

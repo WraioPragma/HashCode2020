@@ -30,8 +30,8 @@ struct LibraryComparator
     bool operator()(Library *library1, Library *library2)
     {
         if (library1->value == library2->value) {
-            library1->signUp > library2->signUp;
+            return library1->signUp < library2->signUp;
         }
-        return library1->value > library2->value;
+        return ((double)library1->value) / library1->signUp > ((double)library2->value) / library1->signUp;
     }
 };
