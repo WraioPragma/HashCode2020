@@ -25,7 +25,7 @@ public:
 				cin >> bookId;
 				lib_books.push_back(books[bookId]);
 			}
-			libraries.push_back(new Library(lib_books, signUp, ship));
+			libraries.push_back(new Library(lib_books, signUp, ship, i));
 		}
 	}
 
