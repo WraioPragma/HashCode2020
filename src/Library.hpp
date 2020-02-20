@@ -29,9 +29,9 @@ struct LibraryComparator
     // Compare 2 Player objects using name
     bool operator()(Library *library1, Library *library2)
     {
-        if (library1->value == library2->value) {
-            return library1->signUp > library2->signUp;
-        }
-        return ((double)library1->value) * library1->ship / library1->signUp < ((double)library2->value)* library2->ship / library2->signUp;
+        // if (library1->value == library2->value) {
+        //     return library1->signUp > library2->signUp;
+        // }
+        return ((double)library1->value) / library1->signUp / library1->signUp < ((double)library2->value) / library2->signUp / library2->signUp;
     }
 };

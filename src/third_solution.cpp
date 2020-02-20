@@ -6,14 +6,14 @@ using namespace std;
 Input read;
 Output out;
 vector<pair<int, vector<int>>> signedUp;
-int step = 1;
+int step = 30;
 
 void greedy() {
     int sumDays = 0;
     while (sumDays <= read.days) {
         if (step == 0) {
             sort(read.libraries.begin(), read.libraries.end(), LibraryComparator());
-            step = 1;
+            step = 30;
         }
         Library* lib = read.libraries[read.libraries.size() - 1];
         sumDays += lib->signUp - 1;
