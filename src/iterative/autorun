@@ -1,0 +1,30 @@
+#!/bin/bash
+g++ -O3 iter.cpp -o ../../bin/iter.out
+i=0
+cd ../bin
+cp out1.txt ../best/greedy_a.txt
+cp out2.txt ../best/greedy_b.txt
+cp out3.txt ../best/greedy_c.txt
+cp out4.txt ../best/greedy_d.txt
+cp out5.txt ../best/greedy_e.txt
+while true
+do
+    cat input1.txt out1.txt > in1.txt
+    cat input2.txt out2.txt > in2.txt
+    cat input3.txt out3.txt > in3.txt
+    cat input4.txt out4.txt > in4.txt
+    cat input5.txt out5.txt > in5.txt
+    ./a.out< in1.txt > out1.txt
+    ./a.out< in2.txt > out2.txt
+    ./a.out< in3.txt > out3.txt
+    ./a.out< in4.txt > out4.txt
+    ./a.out< in5.txt > out5.txt
+    i=$((i+1))
+    echo $i
+    cd ../best
+    cp fin1.txt ../bin/out1.txt
+    cp fin2.txt ../bin/out2.txt
+    cp fin3.txt ../bin/out3.txt
+    cp fin4.txt ../bin/out4.txt
+    cp fin5.txt ../bin/out5.txt 
+done
