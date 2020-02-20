@@ -17,6 +17,16 @@ public:
 		}
 	}
 
+	void write_to_file(vector<pair<int,vector<int>>> activity) {
+		cout << activity.size() << endl;
+		for (int i = 0; i < activity.size(); i++) {
+			cout << activity[i].first << " " << activity[i].second.size() << endl;
+			for (int j = 0; j < activity[i].second.size(); j++) {
+				cout << activity[i].second[j] << " ";
+			} cout << endl;
+		}
+	}
+
 };
 
 

@@ -17,6 +17,11 @@ struct BookComparator
     // Compare 2 Player objects using name
     bool operator()(Book *Book1, Book *Book2)
     {
+        if (Book1->done) {
+            return false;
+        } else if (Book2->done) {
+            return true;
+        }
         return Book1->score < Book2->score;
     }
 };
