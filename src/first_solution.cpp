@@ -1,6 +1,7 @@
 #include "Input.hpp"
 #include "Output.hpp"
 
+
 Input read;
 Output out;
 vector<pair<int,vector<Book*>>> signedUp;
