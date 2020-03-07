@@ -1,6 +1,7 @@
 // #include <bits/stdc++.h>
 #include "global_include.hpp"
 #include <random>
+#include <chrono>
 #include "Input.hpp"
 #include "Output.hpp"
 #include "score.hpp"
@@ -178,7 +179,8 @@ auto iterator_optimization(Input& input, Output& output){
 	auto initial  = best.library_order;
 
 	std::random_device rd;
-	std::mt19937 generator(rd());
+	std::mt19937 generator(static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));
+	// std::mt19937 generator(rd());
 	std::vector<int> weights(library_order),weights2(library_order);
 	std::transform(weights.begin(),weights.end(),weights.begin(),[&](auto a){return input.sign_up_time[a];});
 	auto avg  = std::accumulate(weights.begin(),weights.end(),0)/weights.size();
@@ -265,7 +267,7 @@ int main(){
 	std::cerr<< score(input,output) << std::endl;
 
 
-	for(int i = 0; i < 20; i++){
+	for(int i = 0; i < 100; i++){
 		iterator_optimization(input,output);
 	}
 	
